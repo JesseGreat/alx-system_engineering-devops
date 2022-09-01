@@ -1,1 +1,2 @@
-su change a current user
+#!/bin/bash
+a script that prints the effective username of the current user
