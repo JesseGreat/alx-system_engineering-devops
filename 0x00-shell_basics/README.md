@@ -5,3 +5,4 @@ creating a welcome script
 moving of files
 deletion of file
 deletion of directory
+a script that changes the working directory to the previous one.
