@@ -4,3 +4,4 @@ Display current directory contents.
 creating a welcome script
 moving of files
 deletion of file
+deletion of directory
