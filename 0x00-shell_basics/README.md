@@ -3,3 +3,4 @@ Display current directory contents, including hidden files
 Display current directory contents.
 creating a welcome script
 moving of files
+deletion of file
