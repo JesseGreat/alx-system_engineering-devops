@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
-ssh -i ~/.ssh/school ubuntu@<server_ip_address>
+#A script to connect to an ubuntu server using a public rsa inside the school folder
+ssh -i ~/.ssh/school ubuntu@44.202.73.243
