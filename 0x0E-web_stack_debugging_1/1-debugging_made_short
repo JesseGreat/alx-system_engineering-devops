@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Debbugging my nginx server
+sudo apt-get -y update
+sudo apt-get -y install nginx
+sudo rm -rf /etc/nginx/sites-available/default
+sudo cp /vagrant/default /etc/nginx/sites-available/default
+sudo service nginx restart
