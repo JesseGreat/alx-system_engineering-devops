@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# Set appropriate permissions on nginx.conf
+# A BASH Script that runs nignx webserver as nginx and also configures nginx to listen to port 8080
+pkill apache2
+sed -i 's/80/8080/g' /etc/nginx/sites-available/default
 chmod 644 /etc/nginx/nginx.conf
-
-# Restart nginx service as nginx user
 sudo -u nginx service nginx restart
