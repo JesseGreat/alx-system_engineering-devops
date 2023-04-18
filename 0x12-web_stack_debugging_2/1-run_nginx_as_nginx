@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # Set appropriate permissions on nginx.conf
 chmod 644 /etc/nginx/nginx.conf
 
