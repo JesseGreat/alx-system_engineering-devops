@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 # This script prints out an employee to do list progress.
-
 import requests
 import sys
 
