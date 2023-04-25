@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 """Script to export data in the JSON format"""
-import csv
+import json
 import requests
 import sys
-import json
 
 if __name__ == '__main__':
     # Get employee ID from command line arguments
@@ -16,8 +15,8 @@ if __name__ == '__main__':
 
     # Get employee's to-do list
     todo_lists = requests.get(
-        'https://jsonplaceholder.typicode.com/todos?userId={}'.format(employee_id)
-    ).json()
+        'https://jsonplaceholder.typicode.com/todos?userId={}'
+        .format(employee_id)).json()
 
     # Count number of tasks completed
     num_tasks_completed = sum(
