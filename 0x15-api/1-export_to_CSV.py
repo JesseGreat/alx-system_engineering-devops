@@ -15,25 +15,18 @@ if __name__ == '__main__':
 
     # Get employee's to-do list
     todo_lists = requests.get(
-        'https://jsonplaceholder.typicode.com/todos?userId={}'.format(employee_id)
-    ).json()
+        'https://jsonplaceholder.typicode.com/todos?userId={}'
+        .format(employee_id)).json()
 
     # Count number of tasks completed
     num_tasks_completed = sum(
         task['completed'] for task in todo_lists
     )
 
-    # Print progress report
-    print('Employee {} is done with tasks({}/{}):'.format(
-        employee_info['name'], num_tasks_completed, len(todo_lists)
-    ))
-
     # Export data to CSV file
     filename = '{}.csv'.format(employee_id)
     with open(filename, mode='w', newline='') as csv_file:
-        writer = csv.writer(csv_file)
-        writer.writerow(['USER_ID', 'USERNAME', 'TASK_COMPLETED_STATUS', 'TASK_TITLE'])
+        writer = csv.writer(csv_file, quoting=csv.QUOTE_ALL)
         for task in todo_lists:
-            writer.writerow([employee_id, employee_info['username'], task['completed'], task['title']])
-
-    print('Data exported to {}'.format(filename))
+            writer.writerow([employee_id, employee_info['username'],
+                             task['completed'], task['title']])
