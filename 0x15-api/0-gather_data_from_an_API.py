@@ -17,7 +17,7 @@ no_of_completed_tasks = sum(no_of_tasks['completed']
         for no_of_tasks in todo_lists)
 
 # Print progress report
-print(f"Employee {employee_info['name']} is done with {no_of_completed_tasks}/{len(todo_lists)} tasks:")
+print(f"Employee {employee_info['name']} is done with tasks ({no_of_completed_tasks}/{len(todo_lists)}):")
 for no_of_tasks in todo_lists:
     if no_of_tasks['completed']:
         print(f"\t{no_of_tasks['title']}")
