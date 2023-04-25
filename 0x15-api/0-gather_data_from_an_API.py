@@ -1,24 +1,36 @@
 #!/usr/bin/python3
-"""script using this REST API, for a given employee ID,
-returns information about his/her TODO list progress."""
+"""
+Script that uses this REST API, for a given employee ID, to gather information
+about his/her TODO list progress.
+"""
 import requests
 import sys
 
+
 if __name__ == '__main__':
-#   parameter that takes in the employee id
+    # Get employee ID from command line arguments
     employee_id = sys.argv[1]
 
-#   Get Employee information
-    employee_info = requests.get('https://jsonplaceholder.typicode.com/users/{}'.format(employee_id)).json()
+    # Get employee information
+    employee_info = requests.get(
+        'https://jsonplaceholder.typicode.com/users/{}'.format(employee_id)
+    ).json()
 
-#   Get employer to_do list
-    todo_lists = requests.get('https://jsonplaceholder.typicode.com/todos?userId={}'.format(employee_id)).json()
+    # Get employee's to-do list
+    todo_lists = requests.get(
+        'https://jsonplaceholder.typicode.com/todos?userId={}'.format
+    (employee_id)).json()
 
-#   Get no of tasks completed that is TRUE
-    no_of_completed_tasks = sum(no_of_tasks['completed'] for no_of_tasks in todo_lists)
+    # Count number of tasks completed
+    num_tasks_completed = sum(
+        task['completed'] for task in todo_lists
+    )
 
-#   Print progress report
-    print("Employee {} is done with tasks({}/{}):".format(employee_info['name'], no_of_completed_tasks, len(todo_lists)))
-    for no_of_tasks in todo_lists:
-        if no_of_tasks['completed']:
-             print("\t {}".format(no_of_tasks['title']))
+    # Print progress report
+    print('Employee {} is done with tasks({}/{}):'.format(
+        employee_info['name'], num_tasks_completed, len(todo_lists)
+    ))
+
+    for task in todo_lists:
+        if task['completed']:
+            print('\t {}'.format(task['title']))
