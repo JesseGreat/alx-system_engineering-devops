@@ -5,5 +5,7 @@
 
 Host *
 	PasswordAuthentication no
+	Hostname(IP Address)
+	User(username)
 #   	HostbasedAuthentication no
     	IdentityFile ~/.ssh/school

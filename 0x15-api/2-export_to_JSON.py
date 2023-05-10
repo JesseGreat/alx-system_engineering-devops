@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-"""Script to export data in the CSV format"""
-import csv
+"""Script to export data in the JSON format"""
+import json
 import requests
 import sys
 
@@ -23,10 +23,12 @@ if __name__ == '__main__':
         task['completed'] for task in todo_lists
     )
 
-    # Export data to CSV file
-    filename = '{}.csv'.format(employee_id)
-    with open(filename, mode='w', newline='') as csv_file:
-        writer = csv.writer(csv_file, quoting=csv.QUOTE_ALL)
-        for task in todo_lists:
-            writer.writerow([employee_id, employee_info['username'],
-                             task['completed'], task['title']])
+    info = {employee_id: [{'task': task['title'],
+                           'completed': task['completed'],
+                           'username': employee_info['username']}
+                          for task in todo_lists]}
+
+    # Export data to JSON file
+    filename = '{}.json'.format(employee_id)
+    with open(filename, mode='w') as json_file:
+        json.dump(info, json_file)

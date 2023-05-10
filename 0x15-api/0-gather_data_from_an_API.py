@@ -19,7 +19,7 @@ if __name__ == '__main__':
     # Get employee's to-do list
     todo_lists = requests.get(
         'https://jsonplaceholder.typicode.com/todos?userId={}'.format
-    (employee_id)).json()
+        (employee_id)).json()
 
     # Count number of tasks completed
     num_tasks_completed = sum(
