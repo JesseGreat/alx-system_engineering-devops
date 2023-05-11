@@ -28,7 +28,7 @@ def top_ten(subreddit):
     # Set custom User-Agent header to avoid Too Many Requests error
     headers = {'User-Agent': 'JesseGreat/0.1'}
     # Send GET request to the subreddit API endpoint
-    url = f'https://www.reddit.com/r/{subreddit}/hot.json'
+    url = 'https://www.reddit.com/r/{}/hot.json'.format(subreddit)
     response = requests.get(url, headers=headers, allow_redirects=False)
 
     # If the subreddit is invalid, print None
@@ -44,4 +44,4 @@ def top_ten(subreddit):
             print(post['data']['title'])
     else:
         # If the request failed, print an error message
-        print(f"Error: {response.status_code}")
+        print("Error: {}".format(response.status_code))
